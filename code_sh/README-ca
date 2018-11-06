@@ -1,0 +1,34 @@
+COMPILE
+	type make
+USE
+	ca [-k <number of axes>] <input file> <output stem>
+
+  - <input>: contigency table F (M rows x N columns)
+  - Format of <input file>:
+		M N
+		f_11	f_12	...	f_1N
+		f_21	f_22	...	f_2N
+		 |       |       \       |
+		f_M1	f_12	...	f_MN
+	+ M: number of documents(images)
+	+ N: number of words (visual words)
+  - Output:
+
+	+ <stem>_Z.txt: projection of documents
+	+ <stem>_W.txt: projection of words
+	+ <stem>_A.txt: matrix used to project documents
+		Z = diag(P)^-1 * F * A
+		where P = sum F by rows (P = sum(F, 2) in Matlab). P is not normalized
+	+ <stem>_B.txt: matrix used to project words
+		W = diag(Q)^-1 * F' * B
+		where Q = sum F by columns (Q = sum(F, 1) in Matlab). Q is not normalized
+	+ <stem>_P.txt: marginal distribution by rows (P is normalized, sum to 1)
+	+ <stem>_Q.txt: marginal distribution by columns (Q is normalized, sum to 1)
+	+ <stem>_Lambda.txt: eigenvalues in descendant order
+
+DEPENDENCIES
+  - libatlas
+  - libblas 
+  - liblapack
+  - gfortran
+
