@@ -1,0 +1,17 @@
+Bước 1: Tạo thư mục ảnh theo cấu trúc với car, people, moto,…là tên những hình ảnh trong cùng một nhóm.
+Thư mục
+—-car
+—-people
+—-moto
+—-plane
+…….
+
+Bước 2: Copy thư mục mã nguồn XLA vào không gian lưu trữ của Eclipse (Ví dụ: workspace/XLA) và Import Project vào Eclipse.
+Bước 3: Copy tất cả ảnh vào thư mục XLA/WebContent/img để phục vụ cho việc hiển thị ảnh sau khi tìm kiếm (không bao gồm thư mục).
+Bước 4: Chạy file ImageProcessing.sh trong đường dẫn XLA/code_sh
+Giả sử thư mục wordspace là đường dẫn không gian tên của Eclipse:
+cd workspace/XLA/code_sh
+./ ImageProcessing.sh <đường dẫn thư mục ảnh tạo bước 1>
+Bước 5: Vào file StaticVariable.java để thay đổi đường dẫn cho project:
+public static String PATH = “workspace/XLA/”;
+Ví dụ: Nếu không gian tên trong Eclipse của bạn là ABC thì thay đổi thành
